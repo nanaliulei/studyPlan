@@ -4,6 +4,8 @@
 
 **dubbo**
 
+* 写一个dubbo spi的demo；
+
 * 了解dubbo ExtensionLoader源码，并断点跟进；
 * 了解dubbo Adaptive源码，并断点跟进；
 
