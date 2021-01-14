@@ -1,0 +1,3 @@
+[submodule "springcloud-study"]
+	path = springcloud-study
+	url = git@github.com:nanaliulei/springcloud-study.git
