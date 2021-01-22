@@ -139,3 +139,63 @@ springboot自动装配复习；
 
 * 写一个并发wait、notify、yield、interrupt、sleep的demo。
 
+### 完成情况
+
+**springcloud**
+
+* 已完成案例准备；
+
+## 1月20日
+
+### 学习计划：
+
+**服务器环境配置**
+
+* 阿里云mysql数据库配置；
+* 腾讯云nacos集群配置；
+
+**刷题**
+
+* 力扣每日一题
+
+**springcloud**
+
+* 完成nacos案例。
+
+### 完成情况
+
+**服务器环境配置**
+
+* mysql数据库配置已完成；
+* nacos集群已搭建。
+
+**刷题**
+
+* 每日一题已完成
+
+**springcloud**
+
+* nacos案例已完成。
+
+
+
+## 1月21日-25日
+
+### 学习计划
+
+**springcloud**
+
+* 使用ribbon进行负载均衡demo；
+* ribbon源码解析（跟一遍）
+* Hystrix熔断demo及应用；
+* Feign远程调用demo；
+* Feign源码解析。
+
+**数据结构**
+
+* 巩固树的学习，包括AVL树、红黑树，不包括扩展树
+
+**刷题**
+
+* 每日一题，难度较大时可以刷一道中等难度的题
+
