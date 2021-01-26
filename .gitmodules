@@ -1,3 +1,6 @@
 [submodule "springcloud-study"]
 	path = springcloud-study
 	url = git@github.com:nanaliulei/springcloud-study.git
+[submodule "LeetCode-pass"]
+	path = LeetCode-pass
+	url = git@github.com:nanaliulei/LeetCode-pass.git
