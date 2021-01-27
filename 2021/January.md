@@ -187,9 +187,8 @@ springboot自动装配复习；
 
 * 使用ribbon进行负载均衡demo；
 * ribbon源码解析（跟一遍）
-* Hystrix熔断demo及应用；
-* Feign远程调用demo；
-* Feign源码解析。
+* Hystrix熔断demo及高级应用；
+* Feign远程调用demo。
 
 **数据结构**
 
@@ -198,4 +197,46 @@ springboot自动装配复习；
 **刷题**
 
 * 每日一题，难度较大时可以刷一道中等难度的题
+
+### 完成情况
+
+**springcloud**
+
+* ribbon负载均衡demo已完成；
+* Hystrix熔断demo及高级应用已完成，还需完成dashboarddemo；
+* Feign远程调用demo已完成。
+
+**数据结构**
+
+* 树的内容还没看，需要补充一下。
+
+**刷题**
+
+* 按进度完成。
+
+## 1月26日-31日
+
+### 学习计划
+
+**springcloud**
+
+* gateway学习，开发demo；
+* sentinel学习，开发demo；
+* nacos+sentinel+dubbo demo开发；
+
+**数据结构**
+
+* 复习树的内容；
+
+**并发**
+
+* 基础demo
+
+**刷题**
+
+* 每日一题，并做笔记，编写解题思路；
+
+### 完成情况
+
+**springcloud**
 
