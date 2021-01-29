@@ -240,3 +240,18 @@ springboot自动装配复习；
 
 **springcloud**
 
+* gateway学习，已完成demo；
+* sentinel学习，已完成demo；
+* nacos+sentinel+dubbo 已完成demo；
+
+**数据结构**
+
+* 暂未开始
+
+**并发**
+
+* 暂未开始
+
+**刷题**
+
+* 跟着做每日一题
