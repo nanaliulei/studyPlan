@@ -4,3 +4,6 @@
 [submodule "LeetCode-pass"]
 	path = LeetCode-pass
 	url = git@github.com:nanaliulei/LeetCode-pass.git
+[submodule "design-pattern"]
+	path = design-pattern
+	url = git@github.com:nanaliulei/design-pattern.git
