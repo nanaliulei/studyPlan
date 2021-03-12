@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="demo6_subject" />
+        <module name="demo2_wq" />
+        <module name="spring-anno-consumer" />
+        <module name="demo1" />
+        <module name="spring-anno-listener" />
+        <module name="spring-anno-producer" />
+        <module name="demo3_pub" />
+        <module name="demo4_defaultex" />
+        <module name="demo5_route" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
