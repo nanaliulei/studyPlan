@@ -126,5 +126,7 @@
 
 ### 完成情况：
 
+**RabbitMQ**
 
+* 学习了消息可靠性-publish confirm
 
