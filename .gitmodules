@@ -7,3 +7,6 @@
 [submodule "design-pattern"]
 	path = design-pattern
 	url = git@github.com:nanaliulei/design-pattern.git
+[submodule "network"]
+	path = network
+	url = git@github.com:nanaliulei/network.git
