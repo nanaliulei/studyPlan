@@ -10,3 +10,6 @@
 [submodule "network"]
 	path = network
 	url = git@github.com:nanaliulei/network.git
+[submodule "spring-note"]
+	path = spring-note
+	url = git@github.com:nanaliulei/spring-note.git
