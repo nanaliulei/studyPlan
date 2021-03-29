@@ -13,3 +13,6 @@
 [submodule "spring-note"]
 	path = spring-note
 	url = git@github.com:nanaliulei/spring-note.git
+[submodule "mybatis-note"]
+	path = mybatis-note
+	url = git@github.com:nanaliulei/mybatis-note.git
