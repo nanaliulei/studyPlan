@@ -16,3 +16,7 @@
 [submodule "mybatis-note"]
 	path = mybatis-note
 	url = git@github.com:nanaliulei/mybatis-note.git
+[submodule "redis-study"]
+	path = redis-study
+	url = git@github.com:nanaliulei/redis-study.git
+	branch = main
