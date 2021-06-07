@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.liuliu</groupId>
+    <artifactId>design-pattern-demos</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>strategy-pattern</module>
+        <module>observer</module>
+        <module>decorator-pattern</module>
+        <module>factory-pattern</module>
+        <module>command-pattern</module>
+        <module>template-pattern</module>
+        <module>adaptor-pattern</module>
+        <module>facade-pattern</module>
+        <module>singleton-pattern</module>
+        <module>Iterator-pattern</module>
+        <module>composite-pattern</module>
+        <module>status-pattern</module>
+        <module>proxy-pattern</module>
+    </modules>
+
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.14</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--编译插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                    <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+            <!--打包插件-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.springframework.boot</groupId>-->
+            <!--                <artifactId>spring-boot-mavenplugin</artifactId>-->
+            <!--            </plugin>-->
+        </plugins>
+    </build>
+</project>
