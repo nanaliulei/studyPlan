@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="minibank-remittance" />
+        <module name="minibank-customer-platform" />
+        <module name="minibank-query" />
+        <module name="minibank-deposit" />
+        <module name="minibank-common" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="minibank-common" options="-parameters" />
+      <module name="minibank-customer-platform" options="-parameters" />
+      <module name="minibank-deposit" options="-parameters" />
+      <module name="minibank-parent" options="" />
+      <module name="minibank-query" options="-parameters" />
+      <module name="minibank-remittance" options="-parameters" />
+    </option>
+  </component>
+</project>

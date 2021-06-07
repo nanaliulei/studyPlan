@@ -1,0 +1,15 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: resume-service
+  datasource:
+    url: jdbc:mysql://81.70.154.223:3306/lagou_system?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: liu123qwe
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  #避免将驼峰命名转换为下划线命名
