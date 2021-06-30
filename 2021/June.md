@@ -22,24 +22,84 @@
 
 * structure of class file   ==in progress==
 
-## 6.6-6.12
+## 6.7-6.13
 
 **Spring**
 
-* conclusion of spring $IOC$ and $AOP$
+* conclusion of spring $IOC$ and $AOP$    ==to be done==
 
 $Nacos$
 
-* source code of registry of service
-* source code of heart beat
+* source code of registry of service    ==done==
+* source code of heart beat     ==to be done==
 
 **Algorithm**
 
-* solve at least one new question (middle+) per day     ==in progress==
-* finish $LinkedList$ of $lettcode-master$    ==in progress==
-
-* take part in the weekly competition ==to be done==
+* solve at least one new question (middle+) per day     ==done==
+* finish $LinkedList$ of $leetcode-master$    ==done==
+* finish $HashMap$ of $leetcode-master$    ==in progress==
+* take part in the weekly competition ==done==
 
 $JVM$
 
 * structure of class file      ==in progress==
+
+## 6.14-6.20
+
+**Spring**
+
+* conclusion of spring $IOC$ and $AOP$  
+
+$Nacos$
+
+* draw the call stack of the registry of service
+
+* source code of heart beat
+
+**Algorithm**
+
+* solve at least one new question (middle+) per day  ==done==
+* finish $HashMap$ of $leetcode-master$  ==done==
+* take part in the weekly competition ==done==
+
+$JVM$
+
+* structure of class file
+
+## 6.21-6.27
+
+**Spring**
+
+* conclusion of spring $IOC$ and $AOP$  
+
+$Nacos$
+
+* draw the call stack of the registry of service
+
+* source code of heart beat
+
+**Algorithm**
+
+* solve at least one new question (middle+) per day  ==done==
+* finish $String$ of $leetcode-master$  ==done==
+* finish double pointer of $leetcode-master$  ==done==
+* finish stack and queue of $leetcode-master$  ==done==
+* take part in the weekly competition ==done==
+
+$JVM$
+
+* structure of class file
+
+## 6.28-6.30
+
+**Algorithm**
+
+* solve at least one new question (middle+) per day  ==done==
+* finish tree of $leetcode-master$  ==done==
+* finish $$backtrace$$ of $$leetcode-master$$ ==done==
+
+**$$RocketMQ$$**
+
+* deploy $$RocketMQ$$ on server   ==done==
+* demo of $$mq$$ client ==in progress==
+
