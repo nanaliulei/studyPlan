@@ -4,15 +4,14 @@
 
 $Nacos$
 
-* draw the call stack of the registry of service
+* source code of $$ThreadPoolExecutor$$
 
-* source code of heart beat
 
 **Algorithm**
 
-* solve a new question(middle+) per day   
-* finish greedy of $leetcode-master$    
-* take part in the weekly competition  
+* solve a new question(middle+) per day   ==done==
+* finish greedy of $leetcode-master$    ==done==
+* take part in the weekly competition  ==to be done==
 
 **$JVM$**
 
