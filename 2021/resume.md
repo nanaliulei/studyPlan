@@ -15,7 +15,7 @@
 
 ## 专业技能
 
-* 熟悉使用$JAVA$，有兴趣学习GO
+* 熟悉使用$JAVA$
 * 熟悉$Spring$，熟悉$IOC$容器初始化及$AOP$动态代理源码实现
 * 熟悉$SpringCloud Alibaba$，掌握$Nacos$、$Apollo$等组件
 * 熟悉$Dubbo$，了解其服务治理体系及源码
