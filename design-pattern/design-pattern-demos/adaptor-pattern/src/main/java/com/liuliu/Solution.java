@@ -5,49 +5,41 @@ import java.util.*;
 class Solution {
 
     public static void main(String[] args) {
-        int[][] edges = {{5,7},{15,18},{12,6},{5,1},{11,17},{3,9},{6,11},{14,7},{19,13},{13,3},{4,12},{9,15},{2,10},{18,4},{5,14},{17,5},{16,2},{7,1},{0,16},{10,19},{1,8}};
-        int[] patience = {0,2,1,1,1,2,2,2,2,1,1,1,2,1,1,1,1,2,1,1};
         Solution solution = new Solution();
-        solution.networkBecomesIdle(edges, patience);
+        List<List<Integer>> triangle = new ArrayList<>();
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        List<Integer> list3 = new ArrayList<>();
+        List<Integer> list4 = new ArrayList<>();
+        list1.add(2);
+        list2.add(3);
+        list2.add(4);
+        list3.add(6);
+        list3.add(5);
+        list3.add(7);
+        list4.add(4);
+        list4.add(1);
+        list4.add(8);
+        list4.add(3);
+        triangle.add(list1);
+        triangle.add(list2);
+        triangle.add(list3);
+        triangle.add(list4);
+        solution.minimumTotal(triangle);
     }
-    public int networkBecomesIdle(int[][] edges, int[] patience) {
-        int len = patience.length, result = 0;
-        int[] distance = new int[len];
-        boolean[] visited = new boolean[len];
-        Map<Integer, List<Integer>> map = new HashMap<>();
-        Queue<Integer> que = new LinkedList<>();
-        for (int[] edge : edges){
-            int node1 = edge[0], node2 = edge[1];
-            List<Integer> list1 = map.computeIfAbsent(node1, t -> new ArrayList<>()), list2 = map.computeIfAbsent(node2, t -> new ArrayList<>());
-            list1.add(node2);
-            list2.add(node1);
-        }
-        que.offer(0);
-        visited[0] = true;
-        int round = 0;
-        while (!que.isEmpty()){
-            int size = que.size();
-            for (int i = 0; i < size; i++){
-                int cur = que.poll();
-                distance[cur] = round;
-                for (int nextPos : map.get(cur)){
-                    if (!visited[nextPos]){
-                        que.offer(nextPos);
-                        visited[nextPos] = true;
-                    }
-                }
+
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int len = triangle.size();
+        int[] sum = new int[len];
+        Arrays.fill(sum, Integer.MAX_VALUE);
+        sum[0] = 0;
+        for (List<Integer> list : triangle) {
+            int curLen = list.size();
+            for (int i = curLen - 1; i > 0; i--) {
+                sum[i] = Math.min(sum[i], sum[i - 1]) + list.get(i);
             }
-            round++;
+            sum[0] += list.get(0);
         }
-        for (int i = 0; i < len; i++){
-            int dis = distance[i] * 2, time = dis, pa = patience[i];
-            if (patience[i] < 2){
-                time += dis - 1;
-            } else if (dis / patience[i] > 0){
-                time += (dis / patience[i]) * patience[i];
-            }
-            result = Math.max(result, time);
-        }
-        return result + 1;
+        return sum[len - 1];
     }
 }

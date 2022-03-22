@@ -2,7 +2,7 @@
 
 ## 最小生成树问题
 
-### 算法1
+### Kruskal算法
 
 **算法思想**
 
@@ -28,7 +28,7 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 ```
 
-解法1
+**Kruskal**
 
 ```
 class Solution {
@@ -91,13 +91,99 @@ class Solution {
 }
 ```
 
+### Prim算法
 
+**算法思想**
 
+贪心思想，类似Dijkstra算法，将所有节点分为两组，一组为已加入最小生成树的节点S1，另一组为还未加入的节点S2。初始时，随便选取一个节点加入S1；随后每次从S2中选取离S1距离最近的节点加入到S1，直到所有节点都被加入 S1。
 
+**算法实现**
 
+本算法主要需要解决如何找到距离S1最近的节点，可以使用优先队列或遍历所有节点到S1的权重来解决
 
+**优先队列：**
 
-### 算法2
+1. 将任一节点加入优先队列，到S1距离为0；
+
+2. 从优先队列中获取到S1距离最小的节点，并更新所有从当前节点出发能到达节点的距离（如果边的权重/距离 小于下一节点到S1的距离，则对该节点的距离进行更新）
+
+3. 重复步骤2，直到所有节点都加入最小生成树
+
+**示例（同上）：力扣1584. 连接所有点的最小费用**
+
+**实现1：优先队列**
+
+```
+class Solution {
+    public int minCostConnectPoints(int[][] points) {
+        int len = points.length, result = 0;
+        boolean[] visited = new boolean[len];
+        PriorityQueue<Node> pq = new PriorityQueue<>((a, b) -> a.weight - b.weight);
+        pq.offer(new Node(0, 0));
+        while (!pq.isEmpty()) {
+            Node node = pq.poll();
+            int cur = node.id, weight = node.weight;
+            if (visited[cur]) {
+                continue;
+            }
+            visited[cur] = true;
+            result += weight;
+            for (int i = 1; i < len; i++) {
+                if (!visited[i]) {
+                    pq.offer(new Node(i, Math.abs(points[cur][0] - points[i][0]) + Math.abs(points[cur][1] - points[i][1])));
+                }
+            }
+        }
+        return result;
+    }
+
+    class Node {
+        int id, weight;
+        public Node(int id, int weight) {
+            this.id = id;
+            this.weight = weight;
+        }
+    }
+}
+```
+
+**实现2：遍历获取最小值**
+
+```
+class Solution {
+    public int minCostConnectPoints(int[][] points) {
+        int len = points.length, result = 0;
+        boolean[] visited = new boolean[len];
+        int[] distance = new int[len];
+        Arrays.fill(distance, Integer.MAX_VALUE);
+        distance[0] = 0;
+        for (int i = 0; i < len; i++) {
+            int minPos = -1;
+            for (int j = 0; j < len; j++) {
+                if (!visited[j] && (minPos == -1 || distance[j] < distance[minPos])) {
+                    minPos = j;
+                }
+            }
+            result += distance[minPos];
+            visited[minPos] = true;
+            for (int j = 0; j < len; j++) {
+                if (!visited[j]) {
+                    distance[j] = Math.min(distance[j], Math.abs(points[minPos][0] - points[j][0]) + Math.abs(points[minPos][1] - points[j][1]));
+                }
+            }
+        }
+        return result;
+    }
+
+    class Node {
+        int id, weight;
+        public Node(int id, int weight) {
+            this.id = id;
+            this.weight = weight;
+        }
+    }
+}
+```
 
 ## 单源最短路径问题
 
@@ -251,71 +337,7 @@ class Solution {
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 ```
 
-```
-class Solution {
-
-    Map<Integer, List<Node>> childrenMap;
-    int max = 1_000_000;
-
-    public int findTheCity(int n, int[][] edges, int distanceThreshold) {
-        childrenMap = new HashMap<>();
-        for (int[] edge : edges) {
-            int from = edge[0], to = edge[1], dis = edge[2];
-            List<Node> nodes1 = childrenMap.computeIfAbsent(from, t -> new ArrayList<>());
-            List<Node> nodes2 = childrenMap.computeIfAbsent(to, t -> new ArrayList<>());
-            nodes1.add(new Node(to, dis));
-            nodes2.add(new Node(from, dis));
-        }
-        int min = max, minPos = 0;
-        for (int i = 0; i < n; i++) {
-            int count = getNeighbor(n, i, distanceThreshold);
-            if (count <= min) {
-                min = count;
-                minPos = i;
-            }
-        }
-        return minPos;
-    }
-
-    private int getNeighbor(int n, int src, int distanceThreshold) {
-        //实现1示例
-        int[] distances = new int[n];
-        Arrays.fill(distances, max);
-        distances[src] = 0;
-        boolean[] visited = new boolean[n];
-        for (int i = 1; i < n; i++) {
-            int minPos = -1;
-            for (int j = 0; j < n; j++) {
-                if (!visited[j] && (minPos == -1 || distances[j] < distances[minPos])) {
-                    minPos = j;
-                }
-            }
-            visited[minPos] = true;
-            if (childrenMap.containsKey(minPos)) {
-                for (Node next : childrenMap.get(minPos)) {
-                    distances[next.id] = Math.min(distances[next.id], distances[minPos] + next.dis);
-                }
-            }
-        }
-        int count = 0;
-        for (int distance : distances) {
-            if (distance <= distanceThreshold) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    class Node {
-        int id;
-        int dis;
-        public Node(int id, int dis) {
-            this.id = id;
-            this.dis = dis;
-        }
-    }
-}
-```
+**实现1：优先队列**
 
 ```
 class Solution {
@@ -339,7 +361,6 @@ class Solution {
         }
         return ans;
     }
-    // 实现2·
     private int findNeighbor(int n, int src, int threshold) {
         int[] dis = new int[n];
         Arrays.fill(dis, Integer.MAX_VALUE);
@@ -378,6 +399,73 @@ class Solution {
         public Node(int id, int cost) {
             this.id = id;
             this.cost = cost;
+        }
+    }
+}    
+```
+
+**实现2：遍历**
+
+```
+class Solution {
+
+    Map<Integer, List<Node>> childrenMap;
+    int max = 1_000_000;
+
+    public int findTheCity(int n, int[][] edges, int distanceThreshold) {
+        childrenMap = new HashMap<>();
+        for (int[] edge : edges) {
+            int from = edge[0], to = edge[1], dis = edge[2];
+            List<Node> nodes1 = childrenMap.computeIfAbsent(from, t -> new ArrayList<>());
+            List<Node> nodes2 = childrenMap.computeIfAbsent(to, t -> new ArrayList<>());
+            nodes1.add(new Node(to, dis));
+            nodes2.add(new Node(from, dis));
+        }
+        int min = max, minPos = 0;
+        for (int i = 0; i < n; i++) {
+            int count = getNeighbor(n, i, distanceThreshold);
+            if (count <= min) {
+                min = count;
+                minPos = i;
+            }
+        }
+        return minPos;
+    }
+
+    private int getNeighbor(int n, int src, int distanceThreshold) {
+        int[] distances = new int[n];
+        Arrays.fill(distances, max);
+        distances[src] = 0;
+        boolean[] visited = new boolean[n];
+        for (int i = 1; i < n; i++) {
+            int minPos = -1;
+            for (int j = 0; j < n; j++) {
+                if (!visited[j] && (minPos == -1 || distances[j] < distances[minPos])) {
+                    minPos = j;
+                }
+            }
+            visited[minPos] = true;
+            if (childrenMap.containsKey(minPos)) {
+                for (Node next : childrenMap.get(minPos)) {
+                    distances[next.id] = Math.min(distances[next.id], distances[minPos] + next.dis);
+                }
+            }
+        }
+        int count = 0;
+        for (int distance : distances) {
+            if (distance <= distanceThreshold) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    class Node {
+        int id;
+        int dis;
+        public Node(int id, int dis) {
+            this.id = id;
+            this.dis = dis;
         }
     }
 }
