@@ -1,5 +1,104 @@
 # 图相关算法
 
+## 最小生成树问题
+
+### 算法1
+
+**算法思想**
+
+贪心思想，对所有边按权重从小到大进行排序。遍历所有边，如果边中的两个节点未连通，则将该边加入最小生成树中；如果已连通，则跳过继续遍历下一条边。
+
+**算法实现**
+
+该算法主要需判断两个节点是否连通，可使用并查集解决该问题。
+
+**示例：力扣1584. 连接所有点的最小费用**
+
+```
+给你一个points 数组，表示 2D 平面上的一些点，其中 points[i] = [xi, yi] 。
+
+连接点 [xi, yi] 和点 [xj, yj] 的费用为它们之间的 曼哈顿距离 ：|xi - xj| + |yi - yj| ，其中 |val| 表示 val 的绝对值。
+
+请你返回将所有点连接的最小总费用。只有任意两点之间 有且仅有 一条简单路径时，才认为所有点都已连接。
+
+ 
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/min-cost-to-connect-all-points
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+```
+
+解法1
+
+```
+class Solution {
+    public int minCostConnectPoints(int[][] points) {
+        int len = points.length, cost = 0;
+        UnionFind uf = new UnionFind(len);
+        List<Edge> edges = new ArrayList<>();
+        for (int i = 0; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                edges.add(new Edge(i, j, Math.abs(points[i][0] - points[j][0]) + Math.abs(points[i][1] - points[j][1])));
+            }
+        }
+        Collections.sort(edges, (a, b) -> a.weight - b.weight);
+        for (Edge edge : edges) {
+            int from = edge.from, to = edge.to, weight = edge.weight;
+            if (uf.findRoot(from) != uf.findRoot(to)) {
+                cost += weight;
+                uf.union(from, to);
+            }
+        }
+        return cost;
+    }
+
+    class Edge {
+        int from, to, weight;
+        public Edge(int from, int to, int weight) {
+            this.from = from;
+            this.to = to;
+            this.weight = weight;
+        }
+    }
+
+    class UnionFind {
+
+        int[] parents;
+
+        public UnionFind(int n) {
+            parents = new int[n];
+            for (int i = 0; i < n; i++) {
+                parents[i] = i;
+            }
+        }
+
+        public int findRoot(int x) {
+            int origX = x;
+            while (x != parents[x]) {
+                x = parents[x];
+            }
+            parents[origX] = x;
+            return x;
+        }
+
+        public void union(int x, int y) {
+            int xRoot = findRoot(x), yRoot = findRoot(y);
+            if (xRoot != yRoot) {
+                parents[xRoot] = yRoot;
+            }
+        }
+    }
+}
+```
+
+
+
+
+
+
+
+### 算法2
+
 ## 单源最短路径问题
 
 ### Bellman-ford 算法
@@ -125,7 +224,7 @@ class Solution {
 
 1. 遍历S2，选出路径最短的节点，复杂度为O(n)，适合用于稠密图
 
-2. 使用优先队列存放S2，每次从队列头取出最短路径节点，复杂度为O(logn)，适用于稀疏图。当图比较稠密时，优先队列大小可达N2级别，效率反而降低
+2. 使用优先队列存放S2，每次从队列头取出最短路径节点，复杂度为O(logn)，适用于稀疏图。当图比较稠密时，优先队列大小可达N2级别，效率反而降低（使用斐波那契堆可以解决普通二叉堆问题，但比较复杂，后续补充）
 
 **示例：力扣1334. 阈值距离内邻居最少的城市**
 
