@@ -470,3 +470,69 @@ class Solution {
     }
 }
 ```
+
+## 所有节点对之间的最短路径问题
+
+### Floyd算法
+
+**算法思想**
+
+动态规划，初始时任意两点之间的距离为两点之间直接路径的权重；之后一次将n个节点加入，每加入一个节点k时，对所有节点对(i, j)进行判断，如果以k为中间节点能够使(i, j)之间的距离变短，则对(i, j)之间的距离进行更新。
+
+**算法实现**
+
+1. 初始化，dp[i][j] = wij，如果没有边初始化为max，另dp[i][i] = 0；
+
+2. 依次加入节点1 - n，每加入一个节点k，执行3步骤
+
+3. 对所有节点对(i, j)，执行dp[i][j] = Math.min(dp[i][j], dp[i][k] + dp[k][j])
+
+**证明**
+
+后续补充
+
+**示例同上：力扣1334. 阈值距离内邻居最少的城市**
+
+```
+class Solution {
+    int max = 1_000_000;
+    public int findTheCity(int n, int[][] edges, int distanceThreshold) {
+        int[][] distances = init(n);
+        for (int[] edge : edges) {
+            int from = edge[0], to = edge[1], weight = edge[2];
+            distances[from][to] = weight;
+            distances[to][from] = weight;
+        }
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    distances[i][j] = Math.min(distances[i][j], distances[i][k] + distances[k][j]);
+                }
+            }
+        }
+        int minCount = max, minPos = -1;
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                if (distances[i][j] <= distanceThreshold) {
+                    count++;
+                }
+            }
+            if (count <= minCount) {
+                minCount = count;
+                minPos = i;
+            }
+        }
+        return minPos;
+    }
+
+    private int[][] init(int n) {
+        int[][] distances = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(distances[i], max);
+            distances[i][i] = 0;
+        }
+        return distances;
+    }
+}
+```
