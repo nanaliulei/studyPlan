@@ -1,10 +1,10 @@
-<mxfile host="app.diagrams.net" modified="2022-04-02T09:30:15.271Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="V9pSy-3NReKidlAfPUI2" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-02T09:34:19.941Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="9gewZplzUdhc7e6Zdcy-" version="17.4.0" type="github">
   <diagram name="Page-1" id="74b105a0-9070-1c63-61bc-23e55f88626e">
     <mxGraphModel dx="2062" dy="1146" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
-        <mxCell id="Ck6pVBikPRRo8cWauUGt-6" value="debezium sqlserver connector单线程获取连接的sqlserver数据库的所有cdc变动，再根据topic(表名)进行分配。&lt;br&gt;需要考虑是否需要多个connector，因为每个connector都会获取所有的cdc数据&lt;br&gt;需了解单个connector对单个数据源的读取瓶颈" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;align=left;verticalAlign=top;" vertex="1" parent="1">
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-6" value="debezium sqlserver connector单线程获取连接的sqlserver数据库的所有cdc变动（需再次确认），再根据topic(表名)进行分配。&lt;br&gt;需要考虑是否需要多个connector，因为每个connector都会获取所有的cdc数据&lt;br&gt;需了解单个connector对单个数据源的读取瓶颈" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;align=left;verticalAlign=top;" vertex="1" parent="1">
           <mxGeometry x="400" y="140" width="120" height="210" as="geometry" />
         </mxCell>
         <mxCell id="10b056a9c633e61c-30" value="Title" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" parent="1" vertex="1">
