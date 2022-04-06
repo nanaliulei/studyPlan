@@ -6,10 +6,12 @@
 
 * segment tree
 
-* minimum generated tree
+* minimum generated tree **done**
 
 ### database
 
-* grammer of sqlserver
+* grammer of sqlserver **done**
 
 * function of sqlserver
+
+
