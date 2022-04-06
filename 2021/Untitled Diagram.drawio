@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-06T05:36:53.404Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="zxL2ytlKS06lb0Ho_K5P" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-06T05:51:47.507Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="GNOe3S2Q-4QQsqvrDXli" version="17.4.0" type="github">
   <diagram name="Page-1" id="74b105a0-9070-1c63-61bc-23e55f88626e">
     <mxGraphModel dx="2062" dy="1146" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -76,7 +76,7 @@
         <mxCell id="Ck6pVBikPRRo8cWauUGt-29" value="flink" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;" vertex="1" parent="1">
           <mxGeometry x="1960" y="430" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Ck6pVBikPRRo8cWauUGt-37" value="&#xa;&#xa;&lt;pre style=&quot;font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(255 , 255 , 255) ; color: rgb(8 , 8 , 8) ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0)&quot;&gt;DebeziumSourceFunction&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(255 , 255 , 255) ; color: rgb(8 , 8 , 8) ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0)&quot;&gt;所需依赖：&lt;/span&gt;flink-connector-sqlserver-cdc&lt;/pre&gt;&#xa;&#xa;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Ck6pVBikPRRo8cWauUGt-31" target="Ck6pVBikPRRo8cWauUGt-33">
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-37" value="flink cdc&lt;br&gt;3月27号发布release-2.2.0正式支持sqlserver" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Ck6pVBikPRRo8cWauUGt-31" target="Ck6pVBikPRRo8cWauUGt-33">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-31" value="sqlserver" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;" vertex="1" parent="1">
