@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2022-04-06T02:10:39.009Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="sMHbgBPciQLRyAwWbgYE" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-06T03:24:34.953Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="IiRcwAFUbRVvU6wZ026P" version="17.4.0" type="github">
   <diagram name="Page-1" id="74b105a0-9070-1c63-61bc-23e55f88626e">
     <mxGraphModel dx="2062" dy="1146" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
-        <mxCell id="Ck6pVBikPRRo8cWauUGt-6" value="debezium sqlserver connector单线程获取连接的sqlserver数据库的所有cdc变动（需再次确认），再根据topic(表名)进行分配。&lt;br&gt;需要考虑是否需要多个connector，因为每个connector都会获取所有的cdc数据&lt;br&gt;需了解单个connector对单个数据源的读取瓶颈" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;align=left;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="780" y="110" width="120" height="210" as="geometry" />
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-6" value="debezium sqlserver connector单线程获取连接的sqlserver数据库的白名单表的cdc变动（批次获取，如果批次大小为0，则每次获取到最新lsn。实现：使用function，参数为from_lsn, to_lsn, operation）。如果白名单中存在多张表，则依次查询" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="780" y="120" width="120" height="210" as="geometry" />
         </mxCell>
         <mxCell id="10b056a9c633e61c-30" value="Title" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" parent="1" vertex="1">
           <mxGeometry x="80" y="40" width="1590" height="40" as="geometry" />
@@ -69,6 +69,9 @@
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-24" value="kafka connect一般集群部署。可向集群上注册connector，此处为debezium sqlserver connector。&lt;br&gt;注册connector的具体情况还需确认，是leader选取一个worker注册，还是有备份尚需确认，应该是只有一个，方便offset管理。" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;" vertex="1" parent="1">
           <mxGeometry x="1300" y="70" width="120" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-28" value="需了解单个connector读取的性能瓶颈及资源消耗情况，如connector每秒能读取多少条cdc数据，当读取多张表时效率是否有差异等。&lt;br&gt;了解每张表的数据变动频率，决定每个connector中cdc表的分配" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="750" y="650" width="210" height="110" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
