@@ -1,14 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2022-04-06T03:24:34.953Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="IiRcwAFUbRVvU6wZ026P" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-06T05:36:53.404Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="zxL2ytlKS06lb0Ho_K5P" version="17.4.0" type="github">
   <diagram name="Page-1" id="74b105a0-9070-1c63-61bc-23e55f88626e">
     <mxGraphModel dx="2062" dy="1146" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
         <mxCell id="Ck6pVBikPRRo8cWauUGt-6" value="debezium sqlserver connector单线程获取连接的sqlserver数据库的白名单表的cdc变动（批次获取，如果批次大小为0，则每次获取到最新lsn。实现：使用function，参数为from_lsn, to_lsn, operation）。如果白名单中存在多张表，则依次查询" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;align=left;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="780" y="120" width="120" height="210" as="geometry" />
-        </mxCell>
-        <mxCell id="10b056a9c633e61c-30" value="Title" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" parent="1" vertex="1">
-          <mxGeometry x="80" y="40" width="1590" height="40" as="geometry" />
+          <mxGeometry x="780" y="100" width="120" height="210" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Ck6pVBikPRRo8cWauUGt-1" target="Ck6pVBikPRRo8cWauUGt-2">
           <mxGeometry relative="1" as="geometry" />
@@ -35,43 +32,61 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-1" value="sqlserver" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="230" y="451" width="80" height="80" as="geometry" />
+          <mxGeometry x="230" y="431" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.025;entryY=0.181;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Ck6pVBikPRRo8cWauUGt-2" target="Ck6pVBikPRRo8cWauUGt-8">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-2" value="debezium sqlserver connector" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="800" y="365" width="80" height="80" as="geometry" />
+          <mxGeometry x="800" y="345" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Ck6pVBikPRRo8cWauUGt-3" target="Ck6pVBikPRRo8cWauUGt-8">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-3" value="debezium sqlserver connector" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="800" y="451" width="80" height="80" as="geometry" />
+          <mxGeometry x="800" y="431" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.847;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Ck6pVBikPRRo8cWauUGt-4" target="Ck6pVBikPRRo8cWauUGt-8">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-4" value="debezium sqlserver connector" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="800" y="545" width="80" height="80" as="geometry" />
+          <mxGeometry x="800" y="525" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-8" value="kafka connect&lt;br&gt;distributed" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;" vertex="1" parent="1">
-          <mxGeometry x="1290" y="356" width="120" height="270" as="geometry" />
+          <mxGeometry x="1290" y="336" width="120" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-30" value="&lt;pre style=&quot;background-color: #ffffff ; color: #080808 ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #000000&quot;&gt;KafkaSource&lt;/span&gt;&lt;/pre&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="Ck6pVBikPRRo8cWauUGt-9" target="Ck6pVBikPRRo8cWauUGt-29">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-9" value="kafka" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;" vertex="1" parent="1">
-          <mxGeometry x="1720" y="445" width="80" height="80" as="geometry" />
+          <mxGeometry x="1720" y="430" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="Ck6pVBikPRRo8cWauUGt-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.025;entryY=0.6;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Ck6pVBikPRRo8cWauUGt-8" target="Ck6pVBikPRRo8cWauUGt-9">
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Ck6pVBikPRRo8cWauUGt-8" target="Ck6pVBikPRRo8cWauUGt-9">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="770" y="520" as="sourcePoint" />
-            <mxPoint x="820" y="470" as="targetPoint" />
+            <mxPoint x="770" y="500" as="sourcePoint" />
+            <mxPoint x="820" y="450" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-24" value="kafka connect一般集群部署。可向集群上注册connector，此处为debezium sqlserver connector。&lt;br&gt;注册connector的具体情况还需确认，是leader选取一个worker注册，还是有备份尚需确认，应该是只有一个，方便offset管理。" style="rounded=0;whiteSpace=wrap;html=1;gradientColor=none;" vertex="1" parent="1">
-          <mxGeometry x="1300" y="70" width="120" height="260" as="geometry" />
+          <mxGeometry x="1300" y="50" width="120" height="260" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-28" value="需了解单个connector读取的性能瓶颈及资源消耗情况，如connector每秒能读取多少条cdc数据，当读取多张表时效率是否有差异等。&lt;br&gt;了解每张表的数据变动频率，决定每个connector中cdc表的分配" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="750" y="650" width="210" height="110" as="geometry" />
+          <mxGeometry x="530" y="180" width="210" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-29" value="flink" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1960" y="430" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-37" value="&#xa;&#xa;&lt;pre style=&quot;font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(255 , 255 , 255) ; color: rgb(8 , 8 , 8) ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0)&quot;&gt;DebeziumSourceFunction&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;font-style: normal ; font-weight: 400 ; letter-spacing: normal ; text-align: center ; text-indent: 0px ; text-transform: none ; word-spacing: 0px ; background-color: rgb(255 , 255 , 255) ; color: rgb(8 , 8 , 8) ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0)&quot;&gt;所需依赖：&lt;/span&gt;flink-connector-sqlserver-cdc&lt;/pre&gt;&#xa;&#xa;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Ck6pVBikPRRo8cWauUGt-31" target="Ck6pVBikPRRo8cWauUGt-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-31" value="sqlserver" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="320" y="960" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-32" value="获取cdc表数据所需权限为cdc schema owner + database select权限" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="400" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ck6pVBikPRRo8cWauUGt-33" value="flink" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1190" y="960" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
