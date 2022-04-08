@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-08T05:58:40.909Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="JRkehI4T64-b0wr2DNnS" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-08T10:46:08.854Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="NvNOHiHNcPWuS2lDGPnA" version="17.4.0" type="github">
   <diagram name="Page-1" id="74b105a0-9070-1c63-61bc-23e55f88626e">
     <mxGraphModel dx="2062" dy="1146" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -68,7 +68,7 @@
           <mxGeometry x="1300" y="50" width="120" height="260" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-28" value="需了解单个connector读取的性能瓶颈及资源消耗情况，如connector每秒能读取多少条cdc数据，当读取多张表时效率是否有差异等。&lt;br&gt;了解每张表的数据变动频率，决定每个connector中cdc表的分配" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="480" y="170" width="210" height="110" as="geometry" />
+          <mxGeometry x="110" y="130" width="210" height="110" as="geometry" />
         </mxCell>
         <mxCell id="Ck6pVBikPRRo8cWauUGt-29" value="flink" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;" parent="1" vertex="1">
           <mxGeometry x="1960" y="430" width="80" height="80" as="geometry" />
@@ -96,6 +96,12 @@
         </mxCell>
         <mxCell id="uI7u7_bTOvq3PSHermQw-4" value="增量方式获取后续表变动的cdc数据。单线程&lt;span style=&quot;text-align: left&quot;&gt;批次获取，如果批次大小为0，则每次获取到最新lsn。实现：使用function，参数为from_lsn, to_lsn, operation）。如果白名单中存在多张表，则依次查询&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="740" y="115" width="190" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="uI7u7_bTOvq3PSHermQw-5" value="connector规划，每个connector表的数量？后期如何增加cdc表？put不会创建新的topic" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="162.5" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="uI7u7_bTOvq3PSHermQw-7" value="全量阶段锁模式&lt;a href=&quot;https://debezium.io/documentation/reference/1.9/connectors/sqlserver.html#sqlserver-property-snapshot-isolation-mode&quot; style=&quot;box-sizing: inherit ; color: rgb(21 , 101 , 192) ; font-family: , &amp;#34;helvetica&amp;#34; , &amp;#34;arial&amp;#34; , sans-serif ; font-size: 14.9999px ; text-align: left ; background-color: rgb(252 , 252 , 252)&quot;&gt;&lt;code style=&quot;box-sizing: inherit ; font-family: &amp;#34;roboto mono&amp;#34; , monospace ; color: rgb(34 , 34 , 34) ; background: inherit ; border-radius: 0.25em ; font-size: 0.95em ; padding: 0.125em 0.25em&quot;&gt;snapshot.isolation.mode&lt;/code&gt;&lt;/a&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="490" y="70" width="200" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
