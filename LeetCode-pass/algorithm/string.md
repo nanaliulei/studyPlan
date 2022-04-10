@@ -58,3 +58,90 @@ KMP算法主要分为两部分，首先计算next数组，之后通过next数组
         return next;
     }
 ```
+
+### Z Algorithm
+
+解决字符串你最长公共前缀问题，计算z数组，其中z[i]为以i开始的字符串与原字符串s的最长公共前缀。
+
+**朴素算法**：双重循环，在s的每个位置i，遍历最长公共前缀。复杂度O(N<sup>2</sup>)
+
+根据在z[i]数组的性质，可以不必每次从头进行匹配。
+
+**算法介绍**
+
+1. 记录当前已匹配的最靠右的公共区间[l, r]，初始l=0,r=0;
+
+2. 从i=1开始计算z[i]值；
+
+3. 如果i<=r，i在[l, r]区间内，由于[0, r - l]==[l, r]，因此从i开始，已知可匹配到min(i + z[i - l] - 1, r)，即z[i] = min(z[i - l], r - i + 1)，之后只需从下一位(i + z[i])开始匹配；
+
+4. 如果i>r，则之前没有匹配经验可以使用，直接执行朴素算法，把当前位置和起始位置进行公共前缀查找；
+
+5. 如果当前公共前缀的最右侧位置i+z[i]-1>r，则更新l=i,r=i+z[i]-1;
+
+6. 重复执行2-5，直到i=len(s)
+
+**示例 [2223. 构造字符串的总得分和](https://leetcode-cn.com/problems/sum-of-scores-of-built-strings/)**
+
+```
+你需要从空字符串开始 构造 一个长度为 n 的字符串 s ，构造的过程为每次给当前字符串 前面 添加 一个 字符。构造过程中得到的所有字符串编号为 1 到 n ，其中长度为 i 的字符串编号为 si 。
+
+比方说，s = "abaca" ，s1 == "a" ，s2 == "ca" ，s3 == "aca" 依次类推。
+si 的 得分 为 si 和 sn 的 最长公共前缀 的长度（注意 s == sn ）。
+
+给你最终的字符串 s ，请你返回每一个 si 的 得分之和 。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/sum-of-scores-of-built-strings
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+```
+
+java代码
+
+```
+    public long sumScores(String s) {
+        char[] chars = s.toCharArray();
+        int len = chars.length, l = 0, r = 0;
+        int[] z = new int[len];
+        long result = len;
+        for (int i = 1; i < len; i++) {
+            if (i <= r) {
+                z[i] = Math.min(z[i - l], r - i + 1);
+            }
+            while (i + z[i] < len && chars[i + z[i]] == chars[z[i]]) {
+                z[i]++;
+            }
+            if (i + z[i] - 1 > r) {
+                l = i;
+                r = i + z[i] - 1;
+            }
+            result += z[i];
+        }
+        return result;
+    }
+```
+
+简化代码
+
+```
+    public long sumScores(String s) {
+        char[] chars = s.toCharArray();
+        int len = chars.length, l = 0, r = 0;
+        int[] z = new int[len];
+        long result = len;
+        for (int i = 1; i < len; i++) {
+            z[i] = Math.max(0, Math.min(z[i - l], r - i + 1));
+            while (i + z[i] < len && chars[i + z[i]] == chars[z[i]]) {
+                l = i;
+                r = i + z[i];
+                z[i]++;
+            }
+            result += z[i];
+        }
+        return result;
+    }
+```
+
+**时间复杂度分析**
+
+内层while循环更新r最多len次，时间复杂度为O(N)。
