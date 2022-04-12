@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-11T05:47:39.339Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="gOzMwFv6QuBDQESTt3C6" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-12T06:34:42.476Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36 Edg/99.0.1150.46" etag="UT2oYtcfEQHKO2TCbgN1" version="17.4.0" type="github">
   <diagram name="Page-1" id="74b105a0-9070-1c63-61bc-23e55f88626e">
     <mxGraphModel dx="2062" dy="1146" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -103,7 +103,7 @@
         <mxCell id="uI7u7_bTOvq3PSHermQw-7" value="全量阶段锁模式&lt;a href=&quot;https://debezium.io/documentation/reference/1.9/connectors/sqlserver.html#sqlserver-property-snapshot-isolation-mode&quot; style=&quot;box-sizing: inherit ; color: rgb(21 , 101 , 192) ; font-family: , &amp;#34;helvetica&amp;#34; , &amp;#34;arial&amp;#34; , sans-serif ; font-size: 14.9999px ; text-align: left ; background-color: rgb(252 , 252 , 252)&quot;&gt;&lt;code style=&quot;box-sizing: inherit ; font-family: &amp;#34;roboto mono&amp;#34; , monospace ; color: rgb(34 , 34 , 34) ; background: inherit ; border-radius: 0.25em ; font-size: 0.95em ; padding: 0.125em 0.25em&quot;&gt;snapshot.isolation.mode&lt;/code&gt;&lt;/a&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="490" y="70" width="200" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="uI7u7_bTOvq3PSHermQw-8" value="当connector crash时，有可能出现重复消息，需考虑出现重复消息时如何处理" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="uI7u7_bTOvq3PSHermQw-8" value="当connector crash时，有可能出现重复消息，需考虑出现重复消息时幂等处理" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="510" y="260" width="210" height="30" as="geometry" />
         </mxCell>
       </root>
