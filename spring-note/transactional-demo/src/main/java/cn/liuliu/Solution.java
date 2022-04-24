@@ -2,61 +2,125 @@ package cn.liuliu;
 
 import java.util.*;
 
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+
+
 class Solution {
+    int max, origMax;
+    List<Integer> counts, sums;
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] flowers = {13};
-        solution.maximumBeauty(flowers, 18, 15, 9, 2);
+        TreeNode root = new TreeNode(6);
+        root.left = new TreeNode(0);
+        root.right = new TreeNode(3);
+        root.left.right = new TreeNode(8);
+        solution.getMaxLayerSum(root);
     }
-    public long maximumBeauty(int[] flowers, long newFlowers, int target, int full, int partial) {
-        Arrays.sort(flowers);
-        int len = flowers.length, uLen = len;
-        if (flowers[0] >= target) {
-            return (long)full * len;
+    public int getMaxLayerSum(TreeNode root) {
+        counts = getLayerCount(root);
+        sums = getLayerSum(root);
+        max = Integer.MIN_VALUE;
+        for (int sum : sums) {
+            max = Math.max(max, sum);
         }
-        long[] presum = new long[len + 1];
-        for (int i = 0; i < len; i++) {
-            if (flowers[i] >= target) {
-                uLen = i;
-                break;
-            }
-            presum[i + 1] = presum[i] + flowers[i];
-        }
-        long base = (long)(len - uLen) * full, result = base;
-        int pos = findPos(flowers, presum, uLen, newFlowers);
-        long add = (long)(pos == 0 ? flowers[0] : Math.min(target - 1, (presum[pos] + newFlowers) / pos)) * partial;
-        if (!(uLen == len && newFlowers >= (long)target * len - presum[len])) {
-            result = base + add;
-        }
-        for (int i = uLen - 1; i >= 0; i--) {
-            long total = (long)target * (uLen - i) - (presum[uLen] - presum[i]);
-            if (total > newFlowers) {
-                break;
-            }
-            long remain = newFlowers - total;
-            pos = findPos(flowers, presum, i, remain);
-            long cur = base + (long)(uLen - i) * full;
-            cur += (long)(pos == 0 ? flowers[0] : Math.min(target - 1, (presum[pos] + remain) / pos)) * partial;
-            result = Math.max(result, cur);
-        }
-        return result;
+        dfs(root, 0);
+        return max;
     }
 
-    private int findPos(int[] flowers, long[] presum, int uLen, long remain) {
-        int left = 0, right = uLen;
-        while (left <= right) {
-            int mid = (left + right) >> 1;
-            if (mid == 0) {
-                left = mid + 1;
-            } else if ((long)flowers[mid - 1] * mid - presum[mid] == remain) {
-                return mid;
-            } else if ((long)flowers[mid - 1] * mid - presum[mid] > remain) {
-                right = mid - 1;
-            } else {
-                left = mid + 1;
+    private void dfs(TreeNode root, int dep) {
+        if (root == null) {
+            return;
+        }
+        if (root.left == null && root.right == null && root.val < 0) {
+            max = Math.max(max, sums.get(dep) - root.val);
+        } else if (root.left != null && root.right != null) {
+            dfs(root.left, dep + 1);
+            dfs(root.right, dep + 1);
+        } else if (root.left != null && counts.get(dep) > 1) {
+            List<Integer> curSums = getLayerSum(root);
+            getMaxWithLayerDelete(curSums, dep, root.val);
+            dfs(root.left, dep + 1);
+        } else if (root.right != null && counts.get(dep) > 1) {
+            List<Integer> curSums = getLayerSum(root);
+            getMaxWithLayerDelete(curSums, dep, root.val);
+            dfs(root.right, dep + 1);
+        }
+    }
+
+    private void getMaxWithLayerDelete(List<Integer> curSums, int dep, int val) {
+        int size = sums.size();
+        for (int i = dep; i < size; i++) {
+            int cur = sums.get(i) - val + (i - dep < curSums.size() ? curSums.get(i - dep) : 0);
+            max = Math.max(max, cur);
+            val = curSums.get(i - dep);
+        }
+    }
+
+
+
+    public List<Integer> getLayerSum(TreeNode root) {
+        List<Integer> sums = new ArrayList<>();
+        if (root == null) {
+            return sums;
+        }
+        Queue<TreeNode> que = new LinkedList<>();
+        que.offer(root);
+        while (!que.isEmpty()) {
+            int size = que.size(), sum = 0;
+            for (int i = 0; i < size; i++) {
+                TreeNode node = que.poll();
+                sum += node.val;
+                if (node.left != null) {
+                    que.offer(node.left);
+                }
+                if (node.right != null) {
+                    que.offer(node.right);
+                }
+            }
+            sums.add(sum);
+        }
+        return sums;
+    }
+
+    public List<Integer> getLayerCount(TreeNode root) {
+        List<Integer> counts = new ArrayList<>();
+        if (root == null) {
+            return counts;
+        }
+        Queue<TreeNode> que = new LinkedList<>();
+        que.offer(root);
+        while (!que.isEmpty()) {
+            int size = que.size();
+            counts.add(size);
+            for (int i = 0; i < size; i++) {
+                TreeNode node = que.poll();
+                if (node.left != null) {
+                    que.offer(node.left);
+                }
+                if (node.right != null) {
+                    que.offer(node.right);
+                }
             }
         }
-        return right;
+        return counts;
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
     }
 }
