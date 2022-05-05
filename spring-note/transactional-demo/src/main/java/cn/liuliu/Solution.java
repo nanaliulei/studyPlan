@@ -2,92 +2,125 @@ package cn.liuliu;
 
 import java.util.*;
 
-class Solution {
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 
-    SegNode root;
+
+class Solution {
+    int max, origMax;
+    List<Integer> counts, sums;
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] nums = {0};
-        int lower = 0, upper = 0;
-        solution.countRangeSum(nums, lower, upper);
+        TreeNode root = new TreeNode(6);
+        root.left = new TreeNode(0);
+        root.right = new TreeNode(3);
+        root.left.right = new TreeNode(8);
+        solution.getMaxLayerSum(root);
+    }
+    public int getMaxLayerSum(TreeNode root) {
+        counts = getLayerCount(root);
+        sums = getLayerSum(root);
+        max = Integer.MIN_VALUE;
+        for (int sum : sums) {
+            max = Math.max(max, sum);
+        }
+        dfs(root, 0);
+        return max;
     }
 
-    public int countRangeSum(int[] nums, int lower, int upper) {
-        int len = nums.length;
-        long[] presum = new long[len + 1];
-        for (int i = 0; i < len; i++) {
-            presum[i + 1] = presum[i] + nums[i];
-        }
-        Set<Long> set = new HashSet<>();
-        for (long num : presum) {
-            set.add(num);
-            set.add(num - lower);
-            set.add(num - upper);
-        }
-        List<Long> list = new ArrayList<>(set);
-        Collections.sort(list);
-        Map<Long, Integer> map = new HashMap<>();
-        int n = list.size(), result = 0;
-        for (int i = 0; i < n; i++) {
-            map.put(list.get(i), i);
-        }
-        root = build(1, n);
-        for (int i = 0; i <= len; i++) {
-            long cur = presum[i];
-            int low = map.get(cur - upper), high = map.get(cur - lower);
-            result += getSum(root, low, high);
-            insert(root, map.get(cur));
-        }
-        return result;
-    }
-
-    private int getSum(SegNode root, int low, int high) {
-        if (root == null || root.low > high || root.high < low) {
-            return 0;
-        }
-        if (low <= root.low && high >= root.high) {
-            return root.count;
-        }
-        int mid = (root.low + root.high) >> 1, sum = 0;
-        if (low <= mid) {
-            sum += getSum(root.left, low, high);
-        }
-        if (high > mid) {
-            sum += getSum(root.right, low, high);
-        }
-        return sum;
-    }
-
-    private void insert(SegNode root, int pos) {
-        if (root == null || pos < root.low || pos > root.high) {
+    private void dfs(TreeNode root, int dep) {
+        if (root == null) {
             return;
         }
-        root.count++;
-        int mid = (root.low + root.high) >> 1;
-        if (pos <= mid) {
-            insert(root.left, pos);
-        } else {
-            insert(root.right, pos);
+        if (root.left == null && root.right == null && root.val < 0) {
+            max = Math.max(max, sums.get(dep) - root.val);
+        } else if (root.left != null && root.right != null) {
+            dfs(root.left, dep + 1);
+            dfs(root.right, dep + 1);
+        } else if (root.left != null && counts.get(dep) > 1) {
+            List<Integer> curSums = getLayerSum(root);
+            getMaxWithLayerDelete(curSums, dep, root.val);
+            dfs(root.left, dep + 1);
+        } else if (root.right != null && counts.get(dep) > 1) {
+            List<Integer> curSums = getLayerSum(root);
+            getMaxWithLayerDelete(curSums, dep, root.val);
+            dfs(root.right, dep + 1);
         }
     }
 
-    private SegNode build(int low, int high) {
-        SegNode root = new SegNode(low, high);
-        if (low == high) {
-            return root;
+    private void getMaxWithLayerDelete(List<Integer> curSums, int dep, int val) {
+        int size = sums.size();
+        for (int i = dep; i < size; i++) {
+            int cur = sums.get(i) - val + (i - dep < curSums.size() ? curSums.get(i - dep) : 0);
+            max = Math.max(max, cur);
+            val = curSums.get(i - dep);
         }
-        int mid = (low + high) >> 1;
-        root.left = build(low, mid);
-        root.right = build(mid + 1, high);
-        return root;
     }
-    class SegNode {
-        int low, high, count;
-        SegNode left, right;
-        public SegNode(int low, int high) {
-            this.low = low;
-            this.high = high;
+
+
+
+    public List<Integer> getLayerSum(TreeNode root) {
+        List<Integer> sums = new ArrayList<>();
+        if (root == null) {
+            return sums;
+        }
+        Queue<TreeNode> que = new LinkedList<>();
+        que.offer(root);
+        while (!que.isEmpty()) {
+            int size = que.size(), sum = 0;
+            for (int i = 0; i < size; i++) {
+                TreeNode node = que.poll();
+                sum += node.val;
+                if (node.left != null) {
+                    que.offer(node.left);
+                }
+                if (node.right != null) {
+                    que.offer(node.right);
+                }
+            }
+            sums.add(sum);
+        }
+        return sums;
+    }
+
+    public List<Integer> getLayerCount(TreeNode root) {
+        List<Integer> counts = new ArrayList<>();
+        if (root == null) {
+            return counts;
+        }
+        Queue<TreeNode> que = new LinkedList<>();
+        que.offer(root);
+        while (!que.isEmpty()) {
+            int size = que.size();
+            counts.add(size);
+            for (int i = 0; i < size; i++) {
+                TreeNode node = que.poll();
+                if (node.left != null) {
+                    que.offer(node.left);
+                }
+                if (node.right != null) {
+                    que.offer(node.right);
+                }
+            }
+        }
+        return counts;
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
         }
     }
 }
