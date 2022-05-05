@@ -1,5 +1,278 @@
 # 图相关算法
 
+## 环路问题
+
+### 三色标记法
+
+**算法思想**
+
+判断是否存在环路，可以通过深度优先搜索，如果搜索路径中的下一个节点已经存在与搜索路径中，则存在环路。每个节点可以标记为3个颜色，0代表未访问，1代表节点在栈（当前路径）中，2代表节点已经完成搜索，深度优先搜索中，如果遇到颜色为1的节点则存在环。
+
+**算法实现**
+
+1. 初始化所有节点颜色为0
+
+2. 深度优先搜索，只能访问颜色为0的节点，访问节点前，将其颜色置为1，访问完成后，将其颜色置为2
+
+3. 如果下一个节点颜色值为1，则存在环
+
+**示例：#### [207. 课程表](https://leetcode.cn/problems/course-schedule/)**
+
+```
+你这个学期必须选修 numCourses 门课程，记为 0 到 numCourses - 1 。
+
+在选修某些课程之前需要一些先修课程。 先修课程按数组 prerequisites 给出，其中 prerequisites[i] = [ai, bi] ，表示如果要学习课程 ai 则 必须 先学习课程  bi 。
+
+例如，先修课程对 [0, 1] 表示：想要学习课程 0 ，你需要先完成课程 1 。
+请你判断是否可能完成所有课程的学习？如果可以，返回 true ；否则，返回 false 。
+
+ 
+
+示例 1：
+
+输入：numCourses = 2, prerequisites = [[1,0]]
+输出：true
+解释：总共有 2 门课程。学习课程 1 之前，你需要完成课程 0 。这是可能的。
+示例 2：
+
+输入：numCourses = 2, prerequisites = [[1,0],[0,1]]
+输出：false
+解释：总共有 2 门课程。学习课程 1 之前，你需要先完成​课程 0 ；并且学习课程 0 之前，你还应先完成课程 1 。这是不可能的。
+
+来源：力扣（LeetCode）
+链接：https://leetcode.cn/problems/course-schedule
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+```
+
+**三色标记**
+
+```
+class Solution {
+    int[] colors;
+    Map<Integer, List<Integer>> map;
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        this.colors = new int[numCourses];
+        this.map = new HashMap<>();
+        for (int[] pair : prerequisites) {
+            int from = pair[1], to = pair[0];
+            map.computeIfAbsent(from, t -> new ArrayList<>()).add(to);
+        }
+        for (int i = 0; i < numCourses; i++) {
+            if (colors[i] == 0 && loop(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean loop(int cur) {
+        if (map.containsKey(cur)) {
+            for (int next : map.get(cur)) {
+                if (colors[next] == 1) {
+                    return true;
+                }
+                if (colors[next] == 0) {
+                    colors[next] = 1;
+                    if (loop(next)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        colors[cur] = 2;
+        return false;
+    }
+}
+```
+
+
+
+## 拓扑排序问题
+
+### 深度优先搜索
+
+**算法思想**
+
+进行深度优先搜索时，当其后所有节点遍历完成后将当前节点加入栈中，此时所有在当前节点之后的节点已在栈中。所有节点搜索完成后，依次弹出栈中节点顺序即为拓扑排序顺序。另可以使用三色标记解决存在环路情况
+
+**算法实现**
+
+1. 初始时标记所有节点颜色为0（未访问）
+
+2. 从所有根节点开始进行深度优先搜索；访问节点前将其颜色标记为1（访问中）；节点搜索完成后将其颜色标记为2（已访问），并加入栈中
+
+3. 如果要访问的下一个节点颜色为1，则存在环，不存在拓扑排序，结束搜索
+
+**示例#### [210. 课程表 II](https://leetcode.cn/problems/course-schedule-ii/)**
+
+```
+现在你总共有 numCourses 门课需要选，记为 0 到 numCourses - 1。给你一个数组 prerequisites ，其中 prerequisites[i] = [ai, bi] ，表示在选修课程 ai 前 必须 先选修 bi 。
+
+例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示：[0,1] 。
+返回你为了学完所有课程所安排的学习顺序。可能会有多个正确的顺序，你只要返回 任意一种 就可以了。如果不可能完成所有课程，返回 一个空数组 。
+
+ 
+
+示例 1：
+
+输入：numCourses = 2, prerequisites = [[1,0]]
+输出：[0,1]
+解释：总共有 2 门课程。要学习课程 1，你需要先完成课程 0。因此，正确的课程顺序为 [0,1] 。
+示例 2：
+
+输入：numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+输出：[0,2,1,3]
+解释：总共有 4 门课程。要学习课程 3，你应该先完成课程 1 和课程 2。并且课程 1 和课程 2 都应该排在课程 0 之后。
+因此，一个正确的课程顺序是 [0,1,2,3] 。另一个正确的排序是 [0,2,1,3] 。
+示例 3：
+
+输入：numCourses = 1, prerequisites = []
+输出：[0]
+
+来源：力扣（LeetCode）
+链接：https://leetcode.cn/problems/course-schedule-ii
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+```
+
+**深度优先**
+
+```
+class Solution {
+    Map<Integer, List<Integer>> map;
+    Stack<Integer> stack;
+    int[] colors;
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        map = new HashMap<>();
+        stack = new Stack<>();
+        colors = new int[numCourses];
+        int[] indegree = new int[numCourses];
+        for (int[] pair : prerequisites) {
+            int from = pair[1], to = pair[0];
+            map.computeIfAbsent(from, t -> new ArrayList<>()).add(to);
+            indegree[to]++;
+        }
+        for (int i = 0; i < numCourses; i++) {
+            if (indegree[i] == 0 && colors[i] == 0 && loop(i)) {
+                return new int[0];
+            }
+        }
+        if (stack.size() < numCourses) {
+            return new int[0];
+        }
+        int[] ans = new int[numCourses];
+        for (int i = 0; i < numCourses; i++) {
+            ans[i] = stack.pop();
+        }
+        return ans;
+    }
+
+    private boolean loop(int cur) {
+        if (map.containsKey(cur)) {
+            for (int next : map.get(cur)) {
+                if (colors[next] == 1) {
+                    return true;
+                }
+                if (colors[next] == 0) {
+                    colors[next] = 1;
+                    if (loop(next)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        colors[cur] = 2;
+        stack.push(cur);
+        return false;
+    }
+}
+```
+
+
+
+
+
+### 广度优先搜索
+
+**算法思想**
+
+当节点的入度为0时，没有指向该节点的边，因此可以将节点放在拓扑排序的第一位。利用该性质可以将所有入度为0的节点取出，之后再将剩余子图中入度为0的节点取出，直到没有入度为0的节点。节点取出的顺序即为图的一种拓扑排序。如果存在换，则取出的节点数量小于图中总的节点数量。
+
+**算法实现**
+
+1. 初始化图中所有节点的入度（指向该节点的边的数量），将所有入度为0的节点放入队列中
+
+2. 从队列中取出一个节点，并将它指向节点的入度减一，如果节点新的入度为0，则加入队列中
+
+3. 重复2，直到队列为空
+
+****示例#### [210. 课程表 II](https://leetcode.cn/problems/course-schedule-ii/)****
+
+```
+现在你总共有 numCourses 门课需要选，记为 0 到 numCourses - 1。给你一个数组 prerequisites ，其中 prerequisites[i] = [ai, bi] ，表示在选修课程 ai 前 必须 先选修 bi 。
+
+例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示：[0,1] 。
+返回你为了学完所有课程所安排的学习顺序。可能会有多个正确的顺序，你只要返回 任意一种 就可以了。如果不可能完成所有课程，返回 一个空数组 。
+
+ 
+
+示例 1：
+
+输入：numCourses = 2, prerequisites = [[1,0]]
+输出：[0,1]
+解释：总共有 2 门课程。要学习课程 1，你需要先完成课程 0。因此，正确的课程顺序为 [0,1] 。
+示例 2：
+
+输入：numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+输出：[0,2,1,3]
+解释：总共有 4 门课程。要学习课程 3，你应该先完成课程 1 和课程 2。并且课程 1 和课程 2 都应该排在课程 0 之后。
+因此，一个正确的课程顺序是 [0,1,2,3] 。另一个正确的排序是 [0,2,1,3] 。
+示例 3：
+
+输入：numCourses = 1, prerequisites = []
+输出：[0]
+
+来源：力扣（LeetCode）
+链接：https://leetcode.cn/problems/course-schedule-ii
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+```
+
+**广度优先**
+
+```
+class Solution {
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        int[] indegree = new int[numCourses], result = new int[numCourses];
+        int pos = 0;
+        for (int[] pair : prerequisites) {
+            int from = pair[1], to = pair[0];
+            indegree[to]++;
+            map.computeIfAbsent(from, t -> new ArrayList<>()).add(to);
+        }
+        Queue<Integer> que = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (indegree[i] == 0) {
+                que.offer(i);
+            }
+        }
+        while (!que.isEmpty()) {
+            int cur = que.poll();
+            result[pos++] = cur;
+            if (map.containsKey(cur)) {
+                for (int next : map.get(cur)) {
+                    if (--indegree[next] == 0) {
+                        que.offer(next);
+                    }
+                }
+            }
+        }
+        return pos == numCourses ? result : new int[0];
+    }
+}
+```
+
+
+
 ## 最小生成树问题
 
 ### Kruskal算法
@@ -536,8 +809,6 @@ class Solution {
     }
 }
 ```
-
-
 
 ## 连通性问题
 
