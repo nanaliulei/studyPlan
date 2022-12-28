@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-12-28T05:30:11.495Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54" etag="aQO491GwvUIcjrz4Odys" version="20.7.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-12-28T05:31:47.882Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.54" etag="gMsxVxlg63ipf_aQlD6o" version="20.7.4" type="github">
   <diagram id="kgpKYQtTHZ0yAKxKKP6v" name="Page-1">
     <mxGraphModel dx="794" dy="508" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
       <root>
@@ -19,7 +19,7 @@
         <mxCell id="MPsMj3CxYx6R0UwsIFe--5" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
           <mxGeometry x="390" y="190" width="10" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="MPsMj3CxYx6R0UwsIFe--6" value="EmbeddedBrowserImpl" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="MPsMj3CxYx6R0UwsIFe--6" value="EmbeddedBrowserImpl" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="340" y="100" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MPsMj3CxYx6R0UwsIFe--11" value="click new window on context menu" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=7;" edge="1" parent="1">
@@ -80,7 +80,7 @@
         <mxCell id="MPsMj3CxYx6R0UwsIFe--416" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
           <mxGeometry x="910" y="190" width="10" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="MPsMj3CxYx6R0UwsIFe--417" value="EmbeddedBrowserWebView" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="MPsMj3CxYx6R0UwsIFe--417" value="EmbeddedBrowserWebView" style="rounded=1;whiteSpace=wrap;html=1;fontSize=8;" vertex="1" parent="1">
           <mxGeometry x="860" y="100" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MPsMj3CxYx6R0UwsIFe--418" value="dispatch" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=7;fontColor=#707070;" edge="1" parent="1">
@@ -92,7 +92,7 @@
         <mxCell id="MPsMj3CxYx6R0UwsIFe--423" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
           <mxGeometry x="1080" y="190" width="10" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="MPsMj3CxYx6R0UwsIFe--424" value="NewWindowRequestedEventArgs" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="MPsMj3CxYx6R0UwsIFe--424" value="NewWindowRequestedEventArgs" style="rounded=1;whiteSpace=wrap;html=1;fontSize=8;" vertex="1" parent="1">
           <mxGeometry x="1030" y="100" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MPsMj3CxYx6R0UwsIFe--425" value="InvokeCompleteHandler" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;fontSize=7;fontColor=#707070;" edge="1" parent="1">
