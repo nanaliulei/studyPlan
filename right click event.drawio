@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" modified="2023-01-16T02:17:02.862Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.76" version="20.8.0" etag="MghUhgHVU-mIb1VXtvJI" type="github">
+  <diagram id="sWFLgC91JIhr4vmEx6wz" name="Page-1">
+    <mxGraphModel dx="2027" dy="1148" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-12" value="right click" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PQmZ-ImcLRBji-RMEQ6f-10" target="PQmZ-ImcLRBji-RMEQ6f-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-10" value="start" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PQmZ-ImcLRBji-RMEQ6f-11" target="PQmZ-ImcLRBji-RMEQ6f-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-11" value="handle mouse event in&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;HWNDMessageHandler&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PQmZ-ImcLRBji-RMEQ6f-13" target="PQmZ-ImcLRBji-RMEQ6f-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-13" value="&lt;p&gt;prepare params for show context menu&lt;/p&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-26" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PQmZ-ImcLRBji-RMEQ6f-17" target="PQmZ-ImcLRBji-RMEQ6f-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-17" value="the delegate (&lt;span style=&quot;background-color: initial;&quot;&gt;EmbeddedBrowser&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;) handled the context menu successfully&lt;/span&gt;" style="html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;" vertex="1" parent="1">
+          <mxGeometry x="506" y="460" width="150" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PQmZ-ImcLRBji-RMEQ6f-18" target="PQmZ-ImcLRBji-RMEQ6f-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-18" value="&lt;span style=&quot;font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;dispatch to RenderFrameHostImpl&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="236" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-22" value="end" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="1080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-23" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=0.013;exitY=0.511;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="PQmZ-ImcLRBji-RMEQ6f-17" target="PQmZ-ImcLRBji-RMEQ6f-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="400" as="sourcePoint" />
+            <mxPoint x="810" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="440" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-24" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="PQmZ-ImcLRBji-RMEQ6f-23">
+          <mxGeometry x="0.0356" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PQmZ-ImcLRBji-RMEQ6f-25" target="PQmZ-ImcLRBji-RMEQ6f-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-25" value="build and show context menu" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="597" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-36" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="581" y="787" as="sourcePoint" />
+            <mxPoint x="581" y="840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-31" value="webview2 has a context menu event handler" style="html=1;whiteSpace=wrap;aspect=fixed;shape=isoRectangle;" vertex="1" parent="1">
+          <mxGeometry x="506" y="697" width="150" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-33" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.98;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="PQmZ-ImcLRBji-RMEQ6f-31" target="PQmZ-ImcLRBji-RMEQ6f-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="740" as="sourcePoint" />
+            <mxPoint x="810" y="690" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="730" y="890" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-34" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="PQmZ-ImcLRBji-RMEQ6f-33">
+          <mxGeometry x="-0.2708" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PQmZ-ImcLRBji-RMEQ6f-35" target="PQmZ-ImcLRBji-RMEQ6f-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-35" value="call client method&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;OnShowingContextMenu&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PQmZ-ImcLRBji-RMEQ6f-37" target="PQmZ-ImcLRBji-RMEQ6f-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-37" value="client do something on showing the context menu" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="960" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-40" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="460" y="820" width="250" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="PQmZ-ImcLRBji-RMEQ6f-41" value="action in this container is only for test now" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="PQmZ-ImcLRBji-RMEQ6f-40">
+          <mxGeometry x="-11" y="210" width="250" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
