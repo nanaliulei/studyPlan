@@ -74,3 +74,21 @@ Initialize is better than assignment in most situation. Assignment will first in
 **initialize sequence**
 
 First base class, then derived class. Member variable in the order they are declared.
+
+**local static can be very useful in some situation, but need to pay attention to thread safe**
+
+## Know what functions c++ silently writes and calls
+
+When declare a class, c++ will automatically create **copy construct** method, **assignment construct** method, **destructor** method and a **default construct** method if not exists.
+
+```
+class Empty {}
+
+
+class Empty {
+    Empty() { ... }
+    Empty(const Empty& empty) { ... }
+    ~Empty() { ... }
+    Empty& operator=(const Empty& empty) { ... }
+}
+```
