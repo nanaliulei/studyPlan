@@ -49,3 +49,28 @@ constA.functionA();   // call 2
 ```
 
 **when member function and const member function have same implement, non-const function can call the const function to avoid repeat**
+
+## Make sure that objects are initialized before they're used
+
+**initialize vs assignment**
+
+assignment
+
+```
+Person::Person(const std::string& name, const std::string& gender) {
+    name = name;
+    gender = gender;
+}
+```
+
+initialize
+
+```
+Person::Person(const std::string& name, const std::string& gender) : name(name), gender(gender) {}
+```
+
+Initialize is better than assignment in most situation. Assignment will first initialize with default value, and then assign new value. It will cost more resource.
+
+**initialize sequence**
+
+First base class, then derived class. Member variable in the order they are declared.
