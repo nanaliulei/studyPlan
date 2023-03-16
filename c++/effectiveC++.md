@@ -92,3 +92,17 @@ class Empty {
     Empty& operator=(const Empty& empty) { ... }
 }
 ```
+
+## Explicitly disallow the use of compiler-generated functions you do not want
+
+If you don't want a compiler-generated function, you could declare it as private and do not implement it.
+
+```
+class Home {
+    public:
+        ...
+    private:
+        Home(const Home&);             --do not generate copy construct
+        Home& operator=(const Home&);  --do not generate assignment construct
+}
+```
