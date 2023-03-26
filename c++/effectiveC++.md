@@ -112,3 +112,9 @@ class Home {
 If a class has s virtual method, It also should have a virtual destructor.
 
 if a class doesn't have a virtual method, It should not have a virtual destructor.
+
+## 8 Prevent exception from leaving destructor
+
+Do not throw exception in destructor. If destructor call a function that may throw exception, destructor should catch and ignore it or end the program.
+
+If a function may throw exception and others want to handle the exception, class should provide a normal function rather than do it in destructor.
