@@ -16,7 +16,7 @@
 
 3. 如果下一个节点颜色值为1，则存在环
 
-**示例：#### [207. 课程表](https://leetcode.cn/problems/course-schedule/)**
+**示例： [207. 课程表](https://leetcode.cn/problems/course-schedule/)**
 
 ```
 你这个学期必须选修 numCourses 门课程，记为 0 到 numCourses - 1 。
@@ -84,6 +84,12 @@ class Solution {
     }
 }
 ```
+
+### 问题列表
+
+ [207. 课程表](https://leetcode.cn/problems/course-schedule/)
+
+ [1559. 二维网格图中探测环](https://leetcode.cn/problems/detect-cycles-in-2d-grid/)
 
 ## 拓扑排序问题
 
@@ -569,7 +575,7 @@ class Solution {
 
 1. 从S2中选出最短路径节点x
 
-2. 对所有s出发的边进行松弛
+2. 对所有x出发的边进行松弛
 
 第2部操作实现固定，主要考虑对第1部实现进行区别处理
 
@@ -742,7 +748,7 @@ class Solution {
 
 **算法思想**
 
-动态规划，初始时任意两点之间的距离为两点之间直接路径的权重；之后一次将n个节点加入，每加入一个节点k时，对所有节点对(i, j)进行判断，如果以k为中间节点能够使(i, j)之间的距离变短，则对(i, j)之间的距离进行更新。
+动态规划，初始时任意两点之间的距离为两点之间直接路径的权重；之后依次将n个节点加入，每加入一个节点k时，对所有节点对(i, j)进行判断，如果以k为中间节点能够使(i, j)之间的距离变短，则对(i, j)之间的距离进行更新。
 
 **算法实现**
 
@@ -800,6 +806,75 @@ class Solution {
         return distances;
     }
 }
+```
+
+## 最小环问题
+
+判断一个图中的最小环路，可以通过对所有边进行遍历。如果去除当前边(u, v)后，u v联通，且距离为x， 则存在环路距离为x + dis(u, v)。最小环路即为所有环路距离的最小值。
+
+如果边有权值，且不都为1，则可使用迪杰斯特拉算法，求uv间的最短距离。
+
+如果边没有权值，或权值都为1，则使用广度有限遍历求uv间的最短距离。
+
+**示例：力扣2608. 图中的最短环**
+
+```
+现有一个含 n 个顶点的 双向 图，每个顶点按从 0 到 n - 1 标记。图中的边由二维整数数组 edges 表示，其中 edges[i] = [ui, vi] 表示顶点 ui 和 vi 之间存在一条边。每对顶点最多通过一条边连接，并且不存在与自身相连的顶点。
+
+返回图中 最短 环的长度。如果不存在环，则返回 -1 。
+
+环 是指以同一节点开始和结束，并且路径中的每条边仅使用一次。
+
+来源：力扣（LeetCode）
+链接：https://leetcode.cn/problems/shortest-cycle-in-a-graph
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+```
+
+**实现1：**
+
+```
+int findShortestCycle(int n, vector<vector<int>>& edges) {
+        vector<vector<int>> graph(n);
+        for (auto& edge : edges) {
+            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
+        }
+        int ans = -1;
+        for (auto& edge : edges) {
+            int dis = getLoopDistance(graph, edge[0], edge[1]);
+            if (dis > -1 && (ans == -1 || dis < ans)) {
+                ans = dis;
+            }
+        }
+        return ans;
+    }
+
+    int getLoopDistance(vector<vector<int>>& graph, int from, int to) {
+        int dis = 1, n = graph.size();
+        queue<int> que;
+        que.push(from);
+        vector<bool> visited(n);
+        visited[from] = true;
+        while (!que.empty()) {
+            int size = que.size();
+            for (int i = 0; i < size; i++) {
+                int cur = que.front();
+                que.pop();
+                for (int next : graph[cur]) {
+                    if (visited[next] || (cur == from && next == to)) {
+                        continue;
+                    }
+                    if (next == to) {
+                        return dis + 1;
+                    }
+                    visited[next] = true;
+                    que.push(next);
+                }
+            }
+            dis++;
+        }
+        return -1;
+    }
 ```
 
 ## 连通性问题
