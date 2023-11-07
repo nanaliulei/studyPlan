@@ -85,8 +85,6 @@ class Solution {
 }
 ```
 
-
-
 ## 拓扑排序问题
 
 ### 深度优先搜索
@@ -187,10 +185,6 @@ class Solution {
 }
 ```
 
-
-
-
-
 ### 广度优先搜索
 
 **算法思想**
@@ -270,8 +264,6 @@ class Solution {
     }
 }
 ```
-
-
 
 ## 最小生成树问题
 
@@ -812,4 +804,113 @@ class Solution {
 
 ## 连通性问题
 
+### 强联通分量
+
 ### 割点和桥
+
+对于一个无向图，如果去掉一个点i之后，最大连通分量的数量增加了，则点i为割点。通俗来讲，图G为连通图，如果去掉点i，其他点构成的图不再为连通图，则点i为割点；
+
+对于一个无向图，如果去掉一个边（u,v)后，最大联通分量的数量增加了，则边(u,v)为桥。通俗来讲，图G为连通图，如果去掉边(u,v)，图G不再为连通图，则边(u,v)为桥。
+
+#### tarjan算法
+
+**算法思想**
+
+从任一点开始，对图进行深度优先搜索，按照搜索顺序记录每个节点i的序号为seq[i]，另维护一个数组low，low[i]为节点i不经过父节点能到达的节点的最小seq。
+
+如果节点u的下一个节点v不经过父节点u所能到达的最小序列的节点(low[u])大于等于u的序号(seq[u])，且u不是根节点（遍历起点），则u为割点。因为v及其后节点能到达的最小序列节点为u，去掉u之后，v及其子序列与u的祖先不连通。
+
+如果节点u的下一个节点v不经过父节点u所能到达的最小序列的节点(low[u])大于u的序号(seq[u])，则边(u,v)为桥。因为v及其子序列能到达的最小节点序号为u，去掉(u,v)之后，v及其子序列不能到达u及其祖先，原连通分量不再连通。
+
+**算法实现**
+
+1. 初始化全局变量index；
+
+2. 对图进行深度优先搜索，设置当前节点的seq[i]=index++,low[i]=seq[i];
+   3- 如果当前节点的后续节点已遍历，且不为父节点，则更新low[i]=min(low[i],seq[next])
+
+3. 如果当前节点存在未遍历的后续节点，则先对后续节点进行遍历
+   
+   * 更新low[i]=min(low[i], low[next])
+   
+   * 如果low[next] > seq[i]，边(i, next)为桥
+   
+   * 如果low[next] >= seq[i]，且i不为根节点，则i为割点
+   
+   * 如果i为根节点，且有两个以上子节点（非直接意义上的子节点，而是指需要回溯多次才能遍历完所有子节点。例如，i存在边分别指向两个节点next1，next2，如果next1进行深度优先搜索时遍历到了next2，则记i只有一个子节点next1；如果next1搜索时没有遍历到next2，则i有两个子节点next1，next2），则i为割点
+
+**示例#### [1192. 查找集群内的「关键连接」](https://leetcode.cn/problems/critical-connections-in-a-network/)**
+
+```
+力扣数据中心有 n 台服务器，分别按从 0 到 n-1 的方式进行了编号。它们之间以「服务器到服务器」点对点的形式相互连接组成了一个内部集群，其中连接 connections 是无向的。从形式上讲，connections[i] = [a, b] 表示服务器 a 和 b 之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。
+
+「关键连接」 是在该集群中的重要连接，也就是说，假如我们将它移除，便会导致某些服务器无法访问其他服务器。
+
+请你以任意顺序返回该集群内的所有 「关键连接」。
+
+来源：力扣（LeetCode）
+链接：https://leetcode.cn/problems/critical-connections-in-a-network
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+```
+
+**tarjan**
+
+```
+class Solution {
+    Map<Integer, List<Integer>> map;
+    Node[] nodes;
+    int index;
+    public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
+        map = new HashMap<>();
+        nodes = new Node[n];
+        index = 1;
+        for (List<Integer> conn : connections) {
+            int from = conn.get(0), to = conn.get(1);
+            map.computeIfAbsent(from, t -> new ArrayList<>()).add(to);
+            map.computeIfAbsent(to, t -> new ArrayList<>()).add(from);
+        }
+        for (int i = 0; i < n; i++) {
+            nodes[i] = new Node(i);
+        }
+        tarjan(0, -1);
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (nodes[i].bridge) {
+                List<Integer> list = new ArrayList<>();
+                list.add(nodes[i].parent);
+                list.add(i);
+                ans.add(list);
+            }
+        }
+        return ans;
+    }
+
+    public void tarjan(int cur, int parent) {
+        nodes[cur].parent = parent;
+        nodes[cur].seq = index++;
+        nodes[cur].low = nodes[cur].seq;
+        for (int next : map.get(cur)) {
+            if (next == parent) {
+                continue;
+            }
+            if (nodes[next].seq > 0) {
+                nodes[cur].low = Math.min(nodes[cur].low, nodes[next].seq);
+            } else {
+                tarjan(next, cur);
+                nodes[cur].low = Math.min(nodes[cur].low, nodes[next].low);
+                if (nodes[next].low > nodes[cur].seq) {
+                    nodes[next].bridge = true;
+                }
+            }
+        }
+    }
+
+    class Node {
+        int id, parent, seq, low;
+        boolean bridge;
+        public Node(int id) {
+            this.id = id;
+        }
+    }
+}
+```

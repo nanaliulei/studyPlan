@@ -1,0 +1,95 @@
+<mxfile host="app.diagrams.net" modified="2022-08-07T13:05:33.371Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.81 Safari/537.36 Edg/104.0.1293.47" etag="94BjJDAtTxZB1MiMb1ZO" version="20.2.3" type="github">
+  <diagram id="Yfb2qJFK9YXcBIiNdivb" name="Page-1">
+    <mxGraphModel dx="2062" dy="1146" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-8" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=25;" edge="1" parent="1" source="3ZY2vmhzO7X1mD651p6n-1" target="3ZY2vmhzO7X1mD651p6n-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-1" value="调研并发起征集研发课题" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="39" y="200" width="155" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-10" value="2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=25;" edge="1" parent="1" source="3ZY2vmhzO7X1mD651p6n-7" target="3ZY2vmhzO7X1mD651p6n-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-7" value="申请项目，撰写研发立项材料" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="139" y="370" width="155" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-12" value="3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=25;" edge="1" parent="1" source="3ZY2vmhzO7X1mD651p6n-9" target="3ZY2vmhzO7X1mD651p6n-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-14" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Verdana;fontSize=25;" edge="1" parent="1" source="3ZY2vmhzO7X1mD651p6n-9" target="3ZY2vmhzO7X1mD651p6n-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-9" value="收集，管理立项资料" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="239" y="200" width="155" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-11" value="审批立项" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="269" y="520" width="155" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-16" value="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=25;" edge="1" parent="1" source="3ZY2vmhzO7X1mD651p6n-13" target="3ZY2vmhzO7X1mD651p6n-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-19" value="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.05;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Verdana;fontSize=25;" edge="1" parent="1" source="3ZY2vmhzO7X1mD651p6n-13" target="3ZY2vmhzO7X1mD651p6n-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-13" value="项目管控" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="439" y="200" width="155" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=Verdana;fontSize=25;" edge="1" parent="1" source="3ZY2vmhzO7X1mD651p6n-15" target="3ZY2vmhzO7X1mD651p6n-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-31" value="4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Verdana;fontSize=25;" vertex="1" connectable="0" parent="3ZY2vmhzO7X1mD651p6n-29">
+          <mxGeometry x="0.6762" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=Verdana;fontSize=25;" edge="1" parent="1" source="3ZY2vmhzO7X1mD651p6n-15" target="3ZY2vmhzO7X1mD651p6n-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-32" value="4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Verdana;fontSize=25;" vertex="1" connectable="0" parent="3ZY2vmhzO7X1mD651p6n-30">
+          <mxGeometry x="0.7661" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-15" value="项目管控" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="439" y="370" width="155" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-17" value="准备项目验收材料" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="629" y="370" width="155" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-25" value="5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=25;" edge="1" parent="1" source="3ZY2vmhzO7X1mD651p6n-18" target="3ZY2vmhzO7X1mD651p6n-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-18" value="组织项目验收" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="629" y="200" width="155" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Verdana;fontSize=25;" edge="1" parent="1" source="3ZY2vmhzO7X1mD651p6n-20" target="3ZY2vmhzO7X1mD651p6n-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-20" value="确认并核算研发人员工时，薪资" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="269" y="710" width="155" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-21" value="研发项目费用明细核算，申报管理" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=25;" vertex="1" parent="1">
+          <mxGeometry x="269" y="880" width="155" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-35" value="&lt;div style=&quot;text-align: center; font-size: 20px;&quot;&gt;&lt;span style=&quot;background-color: initial; font-size: 20px;&quot;&gt;研发处：&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;ul style=&quot;font-size: 20px;&quot;&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;制定年度研发经费预算&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;提请研发课题征集&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;与项目厂部沟通分配研发项目并监督落实&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;申请项目立项手续&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;与人事处，财企成本中心按期确定研发费用分配情况&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;组织研发项目验收&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;align=left;fontFamily=Verdana;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="820" y="80" width="420" height="233.75" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-36" value="&lt;div style=&quot;text-align: center; font-size: 20px;&quot;&gt;&lt;span style=&quot;background-color: initial; font-size: 20px;&quot;&gt;项目部：&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;ul style=&quot;font-size: 20px;&quot;&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;相应课题征集并申请立项&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;撰写立项材料&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;及时向财企处传递研发项目相关的成本费用发票，包含项目费用分摊记录台账等&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;准备验收材料&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;align=left;fontFamily=Verdana;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="820" y="320" width="420" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-38" value="&lt;div style=&quot;text-align: center; font-size: 20px;&quot;&gt;&lt;span style=&quot;background-color: initial; font-size: 20px;&quot;&gt;公司经理办公会：&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;ul style=&quot;font-size: 20px;&quot;&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;审批立项&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;align=left;fontFamily=Verdana;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="820" y="520" width="420" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-39" value="&lt;div style=&quot;text-align: center; font-size: 20px;&quot;&gt;&lt;span style=&quot;background-color: initial; font-size: 20px;&quot;&gt;人事行政处：&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;ul style=&quot;font-size: 20px;&quot;&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;与项目厂部/研发处沟通确定项目研发人员名单&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;核算各类研发人员工时分配，薪资情况，分项目形成工时分配薪酬支付台账&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;align=left;fontFamily=Verdana;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="820" y="640" width="420" height="160.94" as="geometry" />
+        </mxCell>
+        <mxCell id="3ZY2vmhzO7X1mD651p6n-40" value="&lt;div style=&quot;text-align: center; font-size: 20px;&quot;&gt;&lt;span style=&quot;background-color: initial; font-size: 20px;&quot;&gt;财企处：&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;ul style=&quot;font-size: 20px;&quot;&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;按项目进行研发支出的财务核算&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;按月登记辅助帐&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;第三季度预缴以及年终汇算清缴时进行研发加计纳税申报&lt;/li&gt;&lt;li style=&quot;font-size: 20px;&quot;&gt;与研发处沟通留存备查资料同步归档信息&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;align=left;fontFamily=Verdana;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="820" y="830.31" width="420" height="189.69" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
